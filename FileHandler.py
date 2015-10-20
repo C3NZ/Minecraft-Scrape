@@ -5,9 +5,9 @@ class handle:
 
 	#init important variables when class is called
 	def __init__(self):
-		self.save_directory = 'logs/'
-		self.today = os.path.join(self.save_directory, (date.today().strftime("%m-%d-%y") + ".txt")) 
-		self.yesterday = os.path.join(self.save_directory, ((date.today() - timedelta(1)).strftime("%m-%d-%y") + ".txt"))
+		save_directory = 'logs/'
+		self.today = os.path.join(save_directory, (date.today().strftime("%m-%d-%y") + ".txt")) 
+		self.yesterday = os.path.join(save_directory, ((date.today() - timedelta(1)).strftime("%m-%d-%y") + ".txt"))
 
 	#read the previous days file and store each line into a list	
 	def readPreviousFile(self):

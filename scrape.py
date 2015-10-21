@@ -12,7 +12,7 @@ def peoplePurchased():
 	people = tree.xpath('//span[@class="paid_users"]/text()') 
 	return str(people[0])
 
-while(programRunning is True):
+while(programRunning):
 	handler = handle()
 	handler.writeFile(peoplePurchased())
 	print "Program ran Successfully!"

@@ -14,6 +14,8 @@ class handle:
 		if self.checkExistance(self.yesterday):
 			f = open(self.yesterday, 'r')
 			self.data = f.readlines()
+		else:
+			self.data = [0]	
 			
 
 	#if the file isnt already in existance for that day then create the file		
@@ -27,13 +29,13 @@ class handle:
 			#set up all the appropriate variables that are going to be written to the file.
 			#translate(arg1, arg2) arg1 is whats going to replace any char in arg2 of the string you give it
 			#If there is no previous log file then init previous variables as 0
-			if(self.data != None):
+			if(self.data[0] != 0):
 				#total amount of people that have purchased minecraft yesterday.
 				peoplePurchasedYesterday_int = int(self.data[1].translate(None, ",Total Purchases:  \n"))	
 				peoplePurchasedinDay_yes = float(self.data[3].translate(None, ",People purchased today: \n"))
 			else:
 				peoplePurchasedYesterday_int = 0
-				peoplePurchasedinDay_yes = 0	
+				peoplePurchasedinDay_yes = 1	
 
 			totalPeoplePurchased_int = int(totalPeoplePurchased.translate(None, ","))
 			#total amount of people that have purchased minecraft today.
@@ -55,9 +57,9 @@ class handle:
 			#Formats the code to 2 decimal places
 			if(peoplePurchasedinDay > peoplePurchasedinDay_yes):
 				f.write("Change in growth Since Yesterday: " + ("{0:.2f}".format(Growth_rate)) + "% increase")
-			else if(peoplePurchasedinDay < peoplePurchasedinDay_yes):
+			elif(peoplePurchasedinDay < peoplePurchasedinDay_yes):
 				f.write("Change in growth Since Yesterday: " + ("{0:.2f}".format(Growth_rate)) + "% decrease")	
-			else if(peoplePurchasedinDay_yes == 0):
+			elif(peoplePurchasedinDay - peoplePurchasedinDay_yes == 0):
 				f.write("No change in growth")
 			#close the file out of memory	
 				

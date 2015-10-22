@@ -1,6 +1,6 @@
-Stats as of 10-21-15 00:35
-Total Purchases: 21,177,393
+Stats as of 10-21-15 18:18
+Total Purchases: 21,182,907
 Purchased Yesterday: 21175922
-People purchased today: 1471
-Profit made: $39643.45
-Change in growth Since Yesterday: 82.45% decrease
+People purchased today: 6985
+Profit made: $188245.75
+Change in growth Since Yesterday: 16.69% decrease

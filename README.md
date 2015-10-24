@@ -14,7 +14,7 @@ The purpose of this script is to grab the amount of users that had purchased min
   - Used to pull the website and stores it as a string
 
 ##Future implementations
--Optimised code (So far very sloppy and crowded with comments)
+- Optimised code (So far very sloppy and crowded with comments)
 
 ##Known issues
--Large Growth rate upon first log entry
+- Large Growth rate upon first log entry

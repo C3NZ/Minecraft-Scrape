@@ -15,6 +15,7 @@ class handle:
 			f = open(self.yesterday, 'r')
 			self.data = f.readlines()
 		else:
+			#
 			self.data = [0]	
 			
 
@@ -35,15 +36,18 @@ class handle:
 				peoplePurchasedinDay_yes = float(self.data[3].translate(None, ",People purchased today: \n"))
 			else:
 				peoplePurchasedYesterday_int = 0
-				peoplePurchasedinDay_yes = 1	
+				peoplePurchasedinDay_yes = 0	
 
 			totalPeoplePurchased_int = int(totalPeoplePurchased.translate(None, ","))
 			#total amount of people that have purchased minecraft today.
 			peoplePurchasedinDay = totalPeoplePurchased_int - peoplePurchasedYesterday_int
 			
 			#take the absolute value because we define whether the growth rate is an increase or decrease later on.
-			Growth_rate = abs(float(((peoplePurchasedinDay - peoplePurchasedinDay_yes) / peoplePurchasedinDay_yes) * 100.0))
-
+			if peoplePurchasedinDay_yes != 0:
+				Growth_rate = abs(float(((peoplePurchasedinDay - peoplePurchasedinDay_yes) / peoplePurchasedinDay_yes) * 100.0))
+			else:
+				Growth_rate = 0	
+			
 			f = open(self.today, 'w+')#returns a file object with the privilege to write
 			
 			#write all the data gathered to the file and do any necessary foormatting to variables
@@ -59,7 +63,7 @@ class handle:
 				f.write("Change in growth Since Yesterday: " + ("{0:.2f}".format(Growth_rate)) + "% increase")
 			elif(peoplePurchasedinDay < peoplePurchasedinDay_yes):
 				f.write("Change in growth Since Yesterday: " + ("{0:.2f}".format(Growth_rate)) + "% decrease")	
-			elif(peoplePurchasedinDay - peoplePurchasedinDay_yes == 0):
+			elif(peoplePurchasedinDay - peoplePurchasedinDay_yes == peoplePurchasedinDay):
 				f.write("No change in growth")
 			#close the file out of memory	
 				
